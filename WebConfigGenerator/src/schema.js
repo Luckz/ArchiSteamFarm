@@ -1,7 +1,7 @@
 import Validators from './validators';
 
 export default {
-    'V3.0.5.6+': {
+    'V3.0.5.8+': {
         asf: [
             {
                 legend: 'schema.basic',
@@ -138,6 +138,13 @@ export default {
                 legend: 'schema.performance',
                 advanced: true,
                 fields: [
+                    {
+                        label: 'ConfirmationsLimiterDelay',
+                        field: 'ConfirmationsLimiterDelay',
+                        type: 'InputNumber',
+                        placeholder: 10,
+                        validator: Validators.byte
+                    },
                     {
                         label: 'FarmingDelay',
                         field: 'FarmingDelay',

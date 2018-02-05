@@ -208,7 +208,12 @@ function logCommand(state, cmd) {
     if (state) {
         $("#commandSent").val(getDateAndTime() + ' Command sent: ' + cmd);
     } else {
-        $(".box-content-command").text(getDateAndTime() + ' Response received: ' + cmd);
+        if ($(".box-content-command").text().length > 0) {
+            $(".box-content-command").text($(".box-content-command").text() + "\n" + getDateAndTime() + ' Response received: ' + cmd);
+        }
+        else
+            $(".box-content-command").text(getDateAndTime() + ' Response received: ' + cmd);
+        $('.box-content-command').scrollTop($('.box-content-command')[0].scrollHeight);
     }
 }
 
@@ -237,7 +242,7 @@ function sendCommand() {
 
     $('.overlay').remove();
 
-    cmdInput.value = "";
+    //cmdInput.value = "";
 }
 
 /*

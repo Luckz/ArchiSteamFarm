@@ -180,7 +180,9 @@ function uptimeToString(startTime) {
     diff -= hours * (1000 * 60 * 60);
 
     var mins = Math.floor(diff / (1000 * 60));
-    diff -= mins * (1000 * 60);
+
+    hours = (hours < 10 ? '0' : '') + hours;
+    mins = (mins < 10 ? '0' : '') + mins;
 
     return days + "d " + hours + "h " + mins + "m";
 }
